@@ -1,8 +1,8 @@
 {
-  "name": "mock-generator",
-  "displayName": "mock-generator",
-  "description": "auto mock data using typescript",
-  "version": "0.0.1",
+  "name": "css-module-typed",
+  "displayName": "css-module-typed",
+  "description": "elegantly enhanced css/scss/less module typed",
+  "version": "1.4.1",
   "engines": {
     "vscode": "^1.54.0"
   },
@@ -12,10 +12,9 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "typescriptServerPlugins": [
       {
-        "command": "mock-generator.helloWorld",
-        "title": "Hello World"
+        "name": "tpcm"
       }
     ]
   },
@@ -29,6 +28,9 @@
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "tpcm": "1.4.1"
   },
   "devDependencies": {
     "@types/vscode": "^1.54.0",
