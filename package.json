@@ -3,7 +3,14 @@
   "displayName": "css-module-typed",
   "description": "elegantly enhanced css/scss/less module typed",
   "icon": "logo/logo.png",
-  "version": "1.6.1",
+  "version": "1.6.2",
+  "keywords": [
+    "css",
+    "module",
+    "less",
+    "scss",
+    "sass"
+  ],
   "engines": {
     "vscode": "^1.54.0"
   },
