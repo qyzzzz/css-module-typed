@@ -3,7 +3,7 @@
   "displayName": "css-module-typed",
   "description": "elegantly enhanced css/scss/less module typed",
   "icon": "logo/logo.png",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "engines": {
     "vscode": "^1.54.0"
   },
@@ -23,7 +23,17 @@
       {
         "name": "tpcm"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "css-module-typed",
+      "properties": {
+        "css-module-typed.pluginOptions": {
+          "type": "object",
+          "default": {},
+          "description": "plugin options as typescript-plugin-css-modules"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
@@ -37,7 +47,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "dependencies": {
-    "tpcm": "1.4.4",
+    "tpcm": "1.5.0",
     "glob": "^10.3.3"
   },
   "devDependencies": {

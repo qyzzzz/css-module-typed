@@ -1,6 +1,16 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import { EXTENSION_NAME } from "./constants";
+import * as path from "path";
+import * as os from "os";
+import * as fs from "fs";
+
+const storagePath = path.join(os.tmpdir(), "./.tpcm.config.json");
+
+const disposer = [];
+
+const PLUGIN_OPTIONS_CONFIG_NAME = `${EXTENSION_NAME}.pluginOptions`;
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -11,31 +21,33 @@ export async function activate(context: vscode.ExtensionContext) {
     'Congratulations, your extension "css-module-typed" is now active!'
   );
 
-  // Get the TS extension
-  const tsExtension = vscode.extensions.getExtension(
-    "vscode.typescript-language-features"
+  setPluginGlobalConfig();
+
+  disposer.push(
+    ...[
+      vscode.workspace.onDidChangeConfiguration((event) => {
+        if (event.affectsConfiguration(PLUGIN_OPTIONS_CONFIG_NAME)) {
+          setPluginGlobalConfig();
+        }
+      }),
+    ]
   );
-  if (!tsExtension) {
-    return;
-  }
-
-  await tsExtension.activate();
-
-  // Get the API from the TS extension
-  if (!tsExtension.exports || !tsExtension.exports.getAPI) {
-    return;
-  }
-
-  const api = tsExtension.exports.getAPI(0);
-  if (!api) {
-    return;
-  }
-  const config = {
-    goToDefinition: true,
-    customMatcher: ".(((c|le|sa|sc)ss)|styl)$",
-  };
-  api.configurePlugin("tpcm", config);
 }
+
+const setPluginGlobalConfig = () => {
+  const globalConfig = vscode.workspace.getConfiguration();
+
+  // TODO support workspace config file
+  const globalOptions = globalConfig.get(PLUGIN_OPTIONS_CONFIG_NAME) as object;
+
+  const options = {
+    goToDefinition: true,
+    customMatcher: "\\.(((c|le|sa|sc)ss)|styl)$",
+    ...globalOptions,
+  };
+
+  fs.writeFileSync(storagePath, JSON.stringify(options), "utf-8");
+};
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
