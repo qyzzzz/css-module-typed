@@ -3,7 +3,7 @@
   "displayName": "css-module-typed",
   "description": "elegantly enhanced css/scss/less module typed",
   "icon": "logo/logo.png",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "engines": {
     "vscode": "^1.54.0"
   },

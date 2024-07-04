@@ -1,38 +1,41 @@
 # css-module-typed README
 
-Without writing .d.ts files, add TypeScript types to your css/less/scss modules files to keep your directory clean.
+在不写入 .d.ts 前提下，给您的 css/less/scss modules 文件添加 typescript 类型，让你的磁盘列表始终保持干净
 
-## Features
+![preview](https://github.com/qyzzzz/typescript-plugin-css-modules-goToDefinition-reproduction/assets/43691324/7658a6e3-d683-40e1-823e-fa9c495bff85)
 
-The plugin can automatically enhance the css modules file type and provide the following features:
+## 功能
 
-1. Automatically recognize class names in css modules files and export them as correct types that can be recognized by TypeScript server.
-2. Support recognizing incorrect class names.
-3. Support goToDefinition. In tsx files, you can automatically navigate to the location where the class name is defined by using the command + click (or control + click on Windows).
-4. Provide rich customization options for compilation.
-5. Support css/less/scss module files.
+插件可以自动增强 css modules 文件类型并且提供下列功能：
 
-## Configuration
+1. 自动识别 css modules 文件中类名，并将其导出为 typescript server 能识别的正确的类型
+2. 支持识别不正确的 class names
+3. 支持 goToDefinition，在 tsx 文件中，使用 command + click( windows 使用 control + click )，可以自动跳转到类名定义的位置
+4. 提供丰富的自定义编译选项
+5. 支持 css/less/scss module 文件
+
+## 配置
 
 #### css-module-typed.pluginOptions
 
-Quoted from https://github.com/mrmckeb/typescript-plugin-css-modules, and added some additional supported features.
+引用自 https://github.com/mrmckeb/typescript-plugin-css-modules，并且添加了一些额外支持的功能
 
-| Option                               | Default value             | Description                                                                    |
-| ------------------------------------ | ------------------------- | ------------------------------------------------------------------------------ |
-| `additionalData`                     | `undefined`               | An optional string to append to the top of source files.                       |
-| `allowUnknownClassnamesAsDeprecated` | `true`                    | allow unknown class names as deprecated                                        |
+
+| Option                               | Default value             | Description                                                  |
+| ------------------------------------ | ------------------------- | ------------------------------------------------------------ |
+| `additionalData`                     | `undefined`               | An optional string to append to the top of source files.     |
+| `allowUnknownClassnamesAsDeprecated` | `true`                    | allow unknown class names as deprecated                      |
 | `allowUnknownClassnames`             | `false`                   | Disables TypeScript warnings on unknown classnames (for default imports only). |
-| `classnameTransform`                 | `"asIs"`                  | See [`classnameTransform`](#classnameTransform) below.                         |
-| `customMatcher`                      | `"\\.(c\|le\|sa\|sc)ss$"` | Changes the file extensions that this plugin processes.                        |
-| `customRenderer`                     | `false`                   | See [`customRenderer`](#customRenderer) below.                                 |
-| `customTemplate`                     | `false`                   | See [`customTemplate`](#customTemplate) below.                                 |
-| `goToDefinition`                     | `true`                    | Enables jump to definition. See [`goToDefinition`](#goToDefinition) below.     |
-| `noUncheckedIndexedAccess`           | `false`                   | Enable for compatibility with TypeScript's `noUncheckedIndexedAccess`.         |
-| `namedExports`                       | `true`                    | Enables named exports for compatible classnames.                               |
-| `dotenvOptions`                      | `{}`                      | Provides options for [`dotenv`](https://github.com/motdotla/dotenv#options).   |
-| `postcssOptions`                     | `{}`                      | See [`postcssOptions`](#postcssOptions) below.                                 |
-| `rendererOptions`                    | `{}`                      | See [`rendererOptions`](#rendererOptions) below.                               |
+| `classnameTransform`                 | `"asIs"`                  | See [`classnameTransform`](#classnameTransform) below.       |
+| `customMatcher`                      | `"\\.(c\|le\|sa\|sc)ss$"` | Changes the file extensions that this plugin processes.      |
+| `customRenderer`                     | `false`                   | See [`customRenderer`](#customRenderer) below.               |
+| `customTemplate`                     | `false`                   | See [`customTemplate`](#customTemplate) below.               |
+| `goToDefinition`                     | `true`                    | Enables jump to definition. See [`goToDefinition`](#goToDefinition) below. |
+| `noUncheckedIndexedAccess`           | `false`                   | Enable for compatibility with TypeScript's `noUncheckedIndexedAccess`. |
+| `namedExports`                       | `true`                    | Enables named exports for compatible classnames.             |
+| `dotenvOptions`                      | `{}`                      | Provides options for [`dotenv`](https://github.com/motdotla/dotenv#options). |
+| `postcssOptions`                     | `{}`                      | See [`postcssOptions`](#postcssOptions) below.               |
+| `rendererOptions`                    | `{}`                      | See [`rendererOptions`](#rendererOptions) below.             |
 
 #### `classnameTransform`
 
@@ -121,20 +124,26 @@ This is experimental, and may not always work as expected. It currently supports
 
 > For convenience, `loadPaths` for Sass are extended, not replaced. The defaults are the path of the current file, and `'node_modules'`.
 
-### Configuration Priority
 
-The priority of reading plugin configurations is as follows: user setting.json < workspace setting.json < .css-module.config.js (same dir with tsconfig.json)
 
-## QA
+### 配置优先级
 
-Q: I made changes to the plugin configurations but they didn't take effect?
+  插件读取配置的优先级分别为 user setting.json < workspace setting.json < .css-module.config.js (same dir with tsconfig.json)
 
-A: reload vscode window make config work.
 
-Q: Some of my `less/scss` files are not being recognized correctly?
 
-A: Check if there are any `less/scss` variables that are not properly defined in the files. If so, you can try defining the unknown variables using `additionalData`.
+## 常见问题
 
-## Remark
+问：我更改了配置的插件没有生效？
+
+答：reload vscode window make config work.
+
+
+
+问：我有一些 less/scss 文件无法正确识别类型？
+
+答：检查一下文件中是否有 less/scss 变量没有被正确定义，如果是，可以尝试用 `additionalData` 定义未知的变量.
+
+## 备注
 
 Based on the usage of `typescript-plugin-css-modules`, we have discovered several issues with this plugin. Therefore, we have fixed them and released the fixes in this plugin.
