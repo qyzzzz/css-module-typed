@@ -1,6 +1,6 @@
 # css-module-typed README
 
-This is the README for your extension "css-module-typed". After writing up a brief description, we recommend including the following sections.
+Add type of your css/less/scss modules file without generate d.ts file, whick keep your file tree clean
 
 ## Features
 
@@ -14,4 +14,3 @@ This plugin can enhance your CSS module file types and provide the following fea
 ## Remark
 
 Based on the usage of `typescript-plugin-css-modules`, we have discovered several issues with this plugin. Therefore, we have fixed them and released the fixes in this plugin.
-

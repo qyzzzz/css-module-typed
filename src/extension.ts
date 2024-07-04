@@ -11,6 +11,7 @@ export async function activate(context: vscode.ExtensionContext) {
     'Congratulations, your extension "css-module-typed" is now active!'
   );
 
+  // Get the TS extension
   const tsExtension = vscode.extensions.getExtension(
     "vscode.typescript-language-features"
   );
@@ -24,15 +25,16 @@ export async function activate(context: vscode.ExtensionContext) {
   if (!tsExtension.exports || !tsExtension.exports.getAPI) {
     return;
   }
+
   const api = tsExtension.exports.getAPI(0);
   if (!api) {
     return;
   }
-
-  api.configurePlugin("tpcm", {
+  const config = {
     goToDefinition: true,
-    customMatcher: ".less$",
-  });
+    customMatcher: ".(((c|le|sa|sc)ss)|styl)$",
+  };
+  api.configurePlugin("tpcm", config);
 }
 
 // This method is called when your extension is deactivated
