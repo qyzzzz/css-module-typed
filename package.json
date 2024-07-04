@@ -2,7 +2,7 @@
   "name": "css-module-typed",
   "displayName": "css-module-typed",
   "description": "elegantly enhanced css/scss/less module typed",
-  "icon": "logo/logo.png",
+  "icon": "resource/logo.png",
   "version": "1.6.2",
   "keywords": [
     "css",
