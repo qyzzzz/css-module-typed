@@ -3,7 +3,7 @@
   "displayName": "css-module-typed",
   "description": "elegantly enhanced css/scss/less module typed",
   "icon": "resource/logo.png",
-  "version": "1.6.2",
+  "version": "1.6.4",
   "keywords": [
     "css",
     "module",
@@ -17,6 +17,10 @@
   "categories": [
     "Programming Languages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qyzzzz/css-module-typed"
+  },
   "publisher": "qyzz",
   "activationEvents": [
     "onLanguage:typescriptreact",
