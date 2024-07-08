@@ -2,7 +2,7 @@
 
 Without writing .d.ts files, add TypeScript types to your css/less/scss modules files to keep your directory clean.
 
-![preview](https://github.com/qyzzzz/typescript-plugin-css-modules-goToDefinition-reproduction/assets/43691324/7658a6e3-d683-40e1-823e-fa9c495bff85)
+![preview](resource/display-after.gif)
 
 ## Features
 
