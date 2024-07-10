@@ -8,11 +8,11 @@ Without writing .d.ts files, add TypeScript types to your css/less/scss modules 
 
 The plugin can automatically enhance the css modules file type and provide the following features:
 
-1. Automatically recognize class names in css modules files and export them as correct types that can be recognized by TypeScript server.
-2. Support recognizing incorrect class names.
-3. Support goToDefinition. In tsx files, you can automatically navigate to the location where the class name is defined by using the command + click (or control + click on Windows).
-4. Provide rich customization options for compilation.
-5. Support css/less/scss module files.
+1. Auto complete.
+2. Auto mark incorrect class names.
+3. Go to definition.
+4. Support css/less/scss module files.
+5. Rich customization options for compilation.
 
 ## Configuration
 
