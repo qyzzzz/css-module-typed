@@ -2286,10 +2286,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-tpcm@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/tpcm/-/tpcm-1.5.0.tgz#d52d8b9c7378522fe9a4012203f7de8df3c183f2"
-  integrity sha512-Q8dzqnFO55k0W87X29xwxzmu6WYwvNbJCVTy9BZVaIVjSKWN5oPaN3TISZ8AdgNW16j+YrlnjwcBb9nuKLzjbw==
+tpcm@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/tpcm/-/tpcm-1.7.0.tgz#92eeac9a7e3f12b92983279b9717bb36da1e63b4"
+  integrity sha512-rJA8myzNr5Tvh0xvelYkqCSa8AlLtYa6cjVwxn15W8CxGOzIQnHrx2v4ua2hSkF+f+rHWyLg8Q4ns5ZeUpsIRg==
   dependencies:
     "@types/postcss-modules-local-by-default" "^4.0.0"
     "@types/postcss-modules-scope" "^3.0.1"
